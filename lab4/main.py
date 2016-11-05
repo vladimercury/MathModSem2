@@ -1,15 +1,14 @@
-from math import log
+import conjugate_gradient.conjugate_gradient_solver as cgs
+from lab4.datagen import generate
+import util.stat as stat
 
+from math import log
 import pylab as pt
 
-import jacobi.jacobi_lin_solver as jls
-import util.stat as stat
-from lab1.datagen import generate
-
-a, x, b = generate()
+a, x, b = generate(7)
 
 #  SOLUTION
-x_res, r, x_stat = jls.solve(a, b)
+x_res, r, x_stat = cgs.solve(a, b, eps=0.01)
 rl = [log(i) for i in r]
 diff = stat.diff(x, x_stat)
 diffl = [log(i) for i in diff]
