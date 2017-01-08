@@ -2,10 +2,15 @@ import conjugate_gradient.conjugate_gradient_solver as cgs
 from lab4.datagen import generate
 import util.stat as stat
 
-from math import log
+import numpy as np
+import numpy.linalg as la
+
+from math import log, sqrt
 import pylab as pt
 
-a, x, b = generate(7)
+a, x, b = generate(50)
+z = la.eig(a)[0]
+print(sorted(z))
 
 #  SOLUTION
 x_res, r, x_stat = cgs.solve(a, b, eps=0.01)
@@ -38,3 +43,4 @@ pt.title("log(pogr) graph")
 pt.xlabel("iteration")
 pt.ylabel("pogr")
 pt.show()
+

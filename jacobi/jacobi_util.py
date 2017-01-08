@@ -6,7 +6,7 @@ def compute_r(b, a, x):
 
 
 def compute_x(x, z):
-    return x + z
+    return -x + z
 
 
 def compute_z(d, r):
